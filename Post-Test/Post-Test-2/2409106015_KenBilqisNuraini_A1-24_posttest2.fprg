@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowchart"/>
+        <attribute name="authors" value="kenbi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-14 08.56.00 PM"/>
+        <attribute name="created" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMTQ7MDcuNTQuNTEgUE07Mjg2Mw=="/>
+        <attribute name="edited" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMTQ7MDguNTYuMDAgUE07MzsyOTcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NamaLengkap, NamaPanggilan, Nim, Prodi, NimPendek" type="String" array="False" size=""/>
+            <declare name="Usia, TinggiBadan, NimInteger, Modulus" type="Integer" array="False" size=""/>
+            <declare name="BeratBadan" type="Real" array="False" size=""/>
+            <output expression="&quot;Masukkan nama lengkap anda: &quot;" newline="True"/>
+            <input variable="NamaLengkap"/>
+            <output expression="&quot;Masukkan nama panggilan anda: &quot;" newline="True"/>
+            <input variable="NamaPanggilan"/>
+            <output expression="&quot;Masukkan NIM lengkap anda: &quot;" newline="True"/>
+            <input variable="Nim"/>
+            <output expression="&quot;Masukkan prodi anda: &quot;" newline="True"/>
+            <input variable="Prodi"/>
+            <output expression="&quot;Masukkan usia anda: &quot;" newline="True"/>
+            <input variable="Usia"/>
+            <output expression="&quot;Berapa berat badan anda?(kg) &quot;" newline="True"/>
+            <input variable="BeratBadan"/>
+            <output expression="&quot;Berapa tinggi badan anda?(cm) &quot;" newline="True"/>
+            <input variable="TinggiBadan"/>
+            <assign variable="NimPendek" expression="char(Nim, 7) &amp; char(Nim, 8) &amp; char(Nim, 9)"/>
+            <assign variable="NimInteger" expression="ToInteger(NimPendek)"/>
+            <assign variable="Modulus" expression="NimInteger % 6"/>
+            <output expression="&quot;Nama saya &quot; &amp; NamaLengkap &amp; &quot; bisa di panggil &quot; &amp; NamaPanggilan &amp;&#13;&#10;&quot;. NIM saya adalah &quot; &amp; Nim &amp;&#13;&#10;&quot;. Saya berasal dari prodi &quot; &amp; Prodi &amp;&#13;&#10;&quot;. Saya Berusia &quot; &amp; Usia &amp;&#13;&#10;&quot;. Saya memiliki berat badan &quot; &amp; BeratBadan &amp; &quot; dan tinggi badan &quot; &amp; TinggiBadan &amp;&#13;&#10;&quot;. Hasil modulus 6 dari 3 angka terakhir NIM adalah &quot; &amp; Modulus" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
