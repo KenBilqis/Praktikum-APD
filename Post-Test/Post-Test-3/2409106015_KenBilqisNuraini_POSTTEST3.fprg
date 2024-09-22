@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="posttest3test"/>
+        <attribute name="authors" value="kenbi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-22 02.28.17 PM"/>
+        <attribute name="created" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMjE7MDguNTAuNTcgUE07Mjg2NA=="/>
+        <attribute name="edited" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMjI7MDIuMjguMTcgUE07ODsyOTc1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NamaUser, Gender" type="String" array="False" size=""/>
+            <declare name="Usia, JenisKelamin, LevelAktivitasHarian" type="Integer" array="False" size=""/>
+            <declare name="bb, tb, bbKG, tbCM, bmr, PoinAktivitasHarian, tdee" type="Real" array="False" size=""/>
+            <output expression="&quot;Nama: &quot;" newline="True"/>
+            <input variable="NamaUser"/>
+            <output expression="&quot;Usia: &quot;" newline="True"/>
+            <input variable="Usia"/>
+            <output expression="&quot;Pilih jenis kelamin 1. pria; 2. wanita.[1/2]&quot;" newline="True"/>
+            <input variable="JenisKelamin"/>
+            <output expression="&quot;Berat badan dalam gram: &quot;" newline="True"/>
+            <input variable="bb"/>
+            <output expression="&quot;Tinggi Badan dalam kilometer: &quot;" newline="True"/>
+            <input variable="tb"/>
+            <assign variable="bbKG" expression="bb / 1000"/>
+            <assign variable="tbCM" expression="tb * 100000"/>
+            <output expression="&quot;Pilih Level Ativitas Harian: 1. Aktivitas Minimal =&gt; jarang bergerak; 2. Aktivitas Sedang =&gt; olahraga 1-3 kali seminggu; 3. Aktivitas Tinggi =&gt; olahraga 4-7 kali seminggu. [1/2/3]&quot;" newline="True"/>
+            <input variable="LevelAktivitasHarian"/>
+            <if expression="LevelAktivitasHarian == 1">
+                <then>
+                    <assign variable="PoinAktivitasHarian" expression="1.25"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="LevelAktivitasHarian == 2">
+                <then>
+                    <assign variable="PoinAktivitasHarian" expression="1.36"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="LevelAktivitasHarian == 3">
+                <then>
+                    <assign variable="PoinAktivitasHarian" expression="1.72"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="JenisKelamin == 1">
+                <then>
+                    <assign variable="Gender" expression="&quot;Pria&quot;"/>
+                    <assign variable="bmr" expression="(10 * bbKG) + (6.25 * tbCM) - (5 * Usia) + 5"/>
+                    <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="JenisKelamin == 2">
+                <then>
+                    <assign variable="Gender" expression="&quot;Wanita&quot;"/>
+                    <assign variable="bmr" expression="(10 * bbKG) + (6.25 * tbCM) - (5 * Usia) - 161"/>
+                    <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
