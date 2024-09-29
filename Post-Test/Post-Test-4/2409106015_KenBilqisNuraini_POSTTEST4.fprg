@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="posttest3test"/>
+        <attribute name="authors" value="kenbi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-29 04.49.40 PM"/>
+        <attribute name="created" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMjE7MDguNTAuNTcgUE07Mjg2NA=="/>
+        <attribute name="edited" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMjk7MDMuMDMuNTYgUE07MjtrZW5iaTtMQVBUT1AtM0pLTlJWQzg7MjAyNC0wOS0yMTswOC41MC41NyBQTTsyNDA5MTA2MDE1X0tlbkJpbHFpc051cmFpbmlfUE9TVFRFU1QzLmZwcmc7OTQ1MQ=="/>
+        <attribute name="edited" value="a2VuYmk7TEFQVE9QLTNKS05SVkM4OzIwMjQtMDktMjk7MDQuNDkuNDAgUE07Mjg7MzAzMw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Nama, NamaUser, Gender, Nim, NimPendek, UlangProgram" type="String" array="False" size=""/>
+            <declare name="NimInteger, NimUser, Usia, JenisKelamin, LevelAktivitasHarian, end, GagalLogin" type="Integer" array="False" size=""/>
+            <declare name="bb, tb, bbKG, tbCM, bmr, PoinAktivitasHarian, tdee" type="Real" array="False" size=""/>
+            <output expression="&quot;Buat username baru dengan nama panggilan anda: &quot;" newline="True"/>
+            <input variable="Nama"/>
+            <output expression="&quot;Masukkan nim anda: &quot;" newline="True"/>
+            <input variable="Nim"/>
+            <assign variable="NimPendek" expression="char(Nim, 7) &amp; char(Nim, 8) &amp; char(Nim, 9)"/>
+            <assign variable="NimInteger" expression="ToInteger(NimPendek)"/>
+            <assign variable="GagalLogin" expression="0"/>
+            <assign variable="end" expression="0"/>
+            <while expression="end == 0">
+                <output expression="&quot;Masukkan username: &quot;" newline="True"/>
+                <input variable="NamaUser"/>
+                <output expression="&quot;Masukkan password berupa nim terakhir tanpa '0': &quot;" newline="True"/>
+                <input variable="NimUser"/>
+                <if expression="Nama == NamaUser and NimInteger == NimUser">
+                    <then>
+                        <output expression="&quot;Login berhasil!&quot;" newline="True"/>
+                        <output expression="&quot;Usia: &quot;" newline="True"/>
+                        <input variable="Usia"/>
+                        <output expression="&quot;Pilih jenis kelamin 1. pria; 2. wanita.[1/2]&quot;" newline="True"/>
+                        <input variable="JenisKelamin"/>
+                        <if expression="JenisKelamin == 1">
+                            <then>
+                                <output expression="&quot;Berat badan dalam gram: &quot;" newline="True"/>
+                                <input variable="bb"/>
+                                <output expression="&quot;Tinggi Badan dalam kilometer: &quot;" newline="True"/>
+                                <input variable="tb"/>
+                                <assign variable="bbKG" expression="bb / 1000"/>
+                                <assign variable="tbCM" expression="tb * 100000"/>
+                                <assign variable="Gender" expression="&quot;Pria&quot;"/>
+                                <assign variable="bmr" expression="(10 * bbKG) + (6.25 * tbCM) - (5 * Usia) + 5"/>
+                                <output expression="&quot;Pilih Level Ativitas Harian: 1. Aktivitas Minimal =&gt; jarang bergerak; 2. Aktivitas Sedang =&gt; olahraga 1-3 kali seminggu; 3. Aktivitas Tinggi =&gt; olahraga 4-7 kali seminggu. [1/2/3]&quot;" newline="True"/>
+                                <input variable="LevelAktivitasHarian"/>
+                                <if expression="LevelAktivitasHarian == 1">
+                                    <then>
+                                        <assign variable="PoinAktivitasHarian" expression="1.25"/>
+                                        <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                        <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                        <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                        <input variable="UlangProgram"/>
+                                        <if expression="UlangProgram == &quot;tidak&quot;">
+                                            <then>
+                                                <assign variable="end" expression="1"/>
+                                            </then>
+                                            <else>
+                                                <if expression="UlangProgram == &quot;ya&quot;">
+                                                    <then/>
+                                                    <else>
+                                                        <assign variable="end" expression="3"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <if expression="LevelAktivitasHarian == 2">
+                                            <then>
+                                                <assign variable="PoinAktivitasHarian" expression="1.36"/>
+                                                <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                                <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                                <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                                <input variable="UlangProgram"/>
+                                                <if expression="UlangProgram == &quot;tidak&quot;">
+                                                    <then>
+                                                        <assign variable="end" expression="1"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="UlangProgram == &quot;ya&quot;">
+                                                            <then/>
+                                                            <else>
+                                                                <assign variable="end" expression="3"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <if expression="LevelAktivitasHarian == 3">
+                                                    <then>
+                                                        <assign variable="PoinAktivitasHarian" expression="1.72"/>
+                                                        <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                                        <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                                        <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                                        <input variable="UlangProgram"/>
+                                                        <if expression="UlangProgram == &quot;tidak&quot;">
+                                                            <then>
+                                                                <assign variable="end" expression="1"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="UlangProgram == &quot;ya&quot;">
+                                                                    <then/>
+                                                                    <else>
+                                                                        <assign variable="end" expression="3"/>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </then>
+                                                    <else>
+                                                        <assign variable="end" expression="3"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="JenisKelamin == 2">
+                                    <then>
+                                        <output expression="&quot;Berat badan dalam gram: &quot;" newline="True"/>
+                                        <input variable="bb"/>
+                                        <output expression="&quot;Tinggi Badan dalam kilometer: &quot;" newline="True"/>
+                                        <input variable="tb"/>
+                                        <assign variable="bbKG" expression="bb / 1000"/>
+                                        <assign variable="tbCM" expression="tb * 100000"/>
+                                        <assign variable="Gender" expression="&quot;Wanita&quot;"/>
+                                        <assign variable="bmr" expression="(10 * bbKG) + (6.25 * tbCM) - (5 * Usia) - 161"/>
+                                        <output expression="&quot;Pilih Level Ativitas Harian: 1. Aktivitas Minimal =&gt; jarang bergerak; 2. Aktivitas Sedang =&gt; olahraga 1-3 kali seminggu; 3. Aktivitas Tinggi =&gt; olahraga 4-7 kali seminggu. [1/2/3]&quot;" newline="True"/>
+                                        <input variable="LevelAktivitasHarian"/>
+                                        <if expression="LevelAktivitasHarian == 1">
+                                            <then>
+                                                <assign variable="PoinAktivitasHarian" expression="1.25"/>
+                                                <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                                <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                                <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                                <input variable="UlangProgram"/>
+                                                <if expression="UlangProgram == &quot;tidak&quot;">
+                                                    <then>
+                                                        <assign variable="end" expression="1"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="UlangProgram == &quot;ya&quot;">
+                                                            <then/>
+                                                            <else>
+                                                                <assign variable="end" expression="3"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <if expression="LevelAktivitasHarian == 2">
+                                                    <then>
+                                                        <assign variable="PoinAktivitasHarian" expression="1.36"/>
+                                                        <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                                        <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                                        <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                                        <input variable="UlangProgram"/>
+                                                        <if expression="UlangProgram == &quot;tidak&quot;">
+                                                            <then>
+                                                                <assign variable="end" expression="1"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="UlangProgram == &quot;ya&quot;">
+                                                                    <then/>
+                                                                    <else>
+                                                                        <assign variable="end" expression="3"/>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="LevelAktivitasHarian == 3">
+                                                            <then>
+                                                                <assign variable="PoinAktivitasHarian" expression="1.72"/>
+                                                                <assign variable="tdee" expression="bmr * PoinAktivitasHarian"/>
+                                                                <output expression="&quot;kalori yang dibutuhkan dalam sehari adalah &quot;&amp;tdee&amp;&quot; kalori&quot;" newline="True"/>
+                                                                <output expression="&quot;Ulangi program?[ya/tidak]: &quot;" newline="True"/>
+                                                                <input variable="UlangProgram"/>
+                                                                <if expression="UlangProgram == &quot;tidak&quot;">
+                                                                    <then>
+                                                                        <assign variable="end" expression="1"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <if expression="UlangProgram == &quot;ya&quot;">
+                                                                            <then/>
+                                                                            <else>
+                                                                                <assign variable="end" expression="3"/>
+                                                                            </else>
+                                                                        </if>
+                                                                    </else>
+                                                                </if>
+                                                            </then>
+                                                            <else>
+                                                                <assign variable="end" expression="3"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <assign variable="end" expression="3"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="Nama == NamaUser and NimInteger != NimUser">
+                            <then>
+                                <output expression="&quot;Anda salah memasukkan password&quot;" newline="True"/>
+                                <assign variable="GagalLogin" expression="GagalLogin + 1"/>
+                                <if expression="GagalLogin == 3">
+                                    <then>
+                                        <assign variable="end" expression="2"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="Nama != NamaUser and NimInteger == NimUser">
+                                    <then>
+                                        <output expression="&quot;Anda salah memasukkan username&quot;" newline="True"/>
+                                        <assign variable="GagalLogin" expression="GagalLogin + 1"/>
+                                        <if expression="GagalLogin == 3">
+                                            <then>
+                                                <assign variable="end" expression="2"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Tolong masukkan nama dan password dengan benar&quot;" newline="True"/>
+                                        <assign variable="GagalLogin" expression="GagalLogin + 1"/>
+                                        <if expression="GagalLogin == 3">
+                                            <then>
+                                                <assign variable="end" expression="2"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <if expression="end == 1">
+                <then>
+                    <output expression="&quot;Program selesai, Terimakasih&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="end == 2">
+                        <then>
+                            <output expression="&quot;Program gagal dijalankan karena anda telah melewati batas gagal login sebanyak 3 kali!&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Invalid&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
