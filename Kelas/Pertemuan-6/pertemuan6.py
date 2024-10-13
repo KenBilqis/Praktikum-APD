@@ -60,11 +60,11 @@
 
 
 # Nambah item ke dictionary
-# Film = {
-# "Avenger Endgame" : "Action",
-# "Sherlock Holmes" : "Mystery",
-# "The Conjuring" : "Horror"
-# }
+Film = {
+"Avenger Endgame" : "Action",
+"Sherlock Holmes" : "Mystery",
+"The Conjuring" : "Horror"
+}
 # #Sebelum Ditambah
 # print(Film)
 # print("")
@@ -79,12 +79,12 @@
 # Ubah item di dictionary
 # sama aja kek nambahkan bedanya key harus sama sama yg sudah ada
 # #Sebelum Diubah
-# print(Film)
-# print("")
-# Film["Sherlock Holmes"] = "Action"
-# Film.update({"The Conjuring" : "Tragedy"})
-# #Setelah diubah
-# print(Film)
+print(Film)
+print("")
+Film["Sherlock Holmes"] = "Action"
+Film.update({"The Conjuring" : "Tragedy"})
+#Setelah diubah
+print(Film)
 
 
 # Hapus item di dictionary
@@ -197,33 +197,34 @@ Jurusan, Angkatan). Setelah itu buatlah dictionary ini dapat :
 # print(biodata)
 
 '''CR sederhana'''
-Biodata = {}
+# Biodata = {}
 
-while True:
-    print("1. Tambah")
-    print("2. Tampilakan")
-    print("3. Exit")
-    pilihan =  int(input("(1/2/3) : "))
+# while True:
+#     print("1. Tambah")
+#     print("2. Tampilakan")
+#     print("3. Exit")
+#     pilihan =  int(input("(1/2/3) : "))
 
-    if pilihan == 1:
-        nama = input("Masukkan nama :")
-        umur = input("Masukkan umur :")
-        alamat = input("Masukkan alamat :")
+#     if pilihan == 1:
+#         nama = input("Masukkan nama :")
+#         umur = input("Masukkan umur :")
+#         alamat = input("Masukkan alamat :")
 
-        Biodata[nama] = { 
-            'Umur' : umur,
-            'Alamat' : alamat
-        }
+#         Biodata[nama] = { 
+#             'Umur' : umur,
+#             'Alamat' : alamat
+#         }
 
-    elif pilihan == 2:
-        for nama, info in Biodata.items():
-            print(f"Nama : {nama}")
-            print(f"Umur : {info['Umur']}")
-            print(f"Alamat : {info['Alamat']}")
+#     elif pilihan == 2:
+#         print(Biodata)
+#         for nama, info in Biodata.items():
+#             print(f"Nama : {nama}")
+#             print(f"Umur : {info['Umur']}")
+#             print(f"Alamat : {info['Alamat']}")
 
-    elif pilihan == 3:
-        print("exit ...")
-        break
+#     elif pilihan == 3:
+#         print("exit ...")
+#         break
 
-    else:
-        print("Invalid ... ... ")
+#     else:
+#         print("Invalid ... ... ")
