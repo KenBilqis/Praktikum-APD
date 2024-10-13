@@ -26,7 +26,7 @@ while True:
             admin = input("\nNama admin: ")
             password_admin = input("Password admin: ")
             # Berhasil login sebagai admin
-            if admin == "q" and password_admin == "q":
+            if admin == "PendXD" and password_admin == "Mumuthe":
                 print('''
 ------------------------------
  Login sebagai admin berhasil
