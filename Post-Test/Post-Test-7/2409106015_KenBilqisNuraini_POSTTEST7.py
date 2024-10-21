@@ -1,6 +1,7 @@
 # Variabel global
 kesempatan_login = 0
 data_tugas = {}
+data_user = {}
 
 # Prosedur untuk tampilan awal program
 def tampilan_awal():
@@ -179,7 +180,7 @@ def menu_user():
 |    2. Tampilkan Tugas   |           
 |    3. Keluar Menu       |  
 ===========================''')
-    pilih_menu = input("\nPilih[1/2/3/4/5]: ")
+    pilih_menu = input("\nPilih[1/2/3]: ")
     if pilih_menu == "1":
         menambah_tugas()
     elif pilih_menu == "2":
@@ -219,6 +220,8 @@ while True:
         # User melakukan register atau pendaftaran akun untuk login
         username = input("Buat username: ") # Variabel global
         password_user = input("Buat password: ") # Variabel global
+        data_user[username] = password_user
+        print(data_user)
         print('''
 ----------------------------------------------
  Silahkan login dengan akun yang sudah dibuat
@@ -229,7 +232,7 @@ while True:
             nama_user = input("\nUsername: ") # Variabel global
             password_login_user = input("Password: ") # Variabel global
             # Berhasil login sebagai user
-            if nama_user == username and password_login_user == password_user:
+            if nama_user in data_user and password_login_user == data_user[nama_user]:
                 menu_user()
             else:
                 kesempatan_login +=1
