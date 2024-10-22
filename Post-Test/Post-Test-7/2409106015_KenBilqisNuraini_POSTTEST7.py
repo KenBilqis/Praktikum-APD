@@ -97,40 +97,51 @@ Mata Kuliah: {i}
 
 # Fungsi mengubah data tugas yang sudah ada
 def mengubah_tugas():
-    matkul_ganti = input("Nama mata kuliah tugas yang ingin diganti: ")
-    if cari_data(matkul_ganti):
+    if not data_tugas:
         print('''
+----------------------------------
+ Belum ada tugas yang ditambahkan
+----------------------------------''')
+    else:
+        matkul_ganti = input("Nama mata kuliah tugas yang ingin diganti: ")
+        if cari_data(matkul_ganti):
+            print('''
 -------------------------------
  Silahkan isi dengan data baru
 -------------------------------
 ''')
-        matkul_baru = input("Mata kuliah: ")
-        tugas_baru = input("Tugas: ")
-        deadline_baru = input("Deadline pengumpulan: ")
-        data_tugas[matkul_baru] = data_tugas.pop(matkul_ganti)
-        matkul_ganti = matkul_baru
-        data_tugas[matkul_ganti]['Tugas'] = tugas_baru
-        data_tugas[matkul_ganti]['Deadline'] = deadline_baru
-        print('''
+            matkul_baru = input("Mata kuliah: ")
+            tugas_baru = input("Tugas: ")
+            deadline_baru = input("Deadline pengumpulan: ")
+            data_tugas[matkul_baru] = data_tugas.pop(matkul_ganti)
+            matkul_ganti = matkul_baru
+            data_tugas[matkul_ganti]['Tugas'] = tugas_baru
+            data_tugas[matkul_ganti]['Deadline'] = deadline_baru
+            print('''
 -----------------------
  Data berhasil diganti
 -----------------------
 ''')
-    else:
-        print(f"{matkul_ganti} tidak ada dalam data tugas")
-
+        else:
+            print(f"{matkul_ganti} tidak ada dalam data tugas")
 
 # Fungsi menghapus data tugas
 def menghapus_tugas():
-    hapus_matkul = input("Nama mata kuliah yang ingin dihapus: ")
-    if cari_data(hapus_matkul):
-        del data_tugas[hapus_matkul]
+    if not data_tugas:
         print('''
+----------------------------------
+ Belum ada tugas yang ditambahkan
+----------------------------------''')
+    else:
+        hapus_matkul = input("Nama mata kuliah yang ingin dihapus: ")
+        if cari_data(hapus_matkul):
+            del data_tugas[hapus_matkul]
+            print('''
 -----------------------
  Data berhasil dihapus
 -----------------------''')
-    else:
-        print(f"{hapus_matkul} tidak ada dalam data tugas")
+        else:
+            print(f"{hapus_matkul} tidak ada dalam data tugas")
 
 # Fungsi keluar dari program
 def keluar_program():
